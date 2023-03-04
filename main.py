@@ -59,7 +59,7 @@ while True:
     #Now we calculate the EMA of the Williams %R and we add it to our list.
     williams_list = williamsCalculator(highest, lowest, closing)
     ema = williams_list[0].ewm(alpha=1, adjust=False).mean()
-    trend = trendDetector(closing_prices)
+    trend = trendDetector(closing_prices) #Use the SMA to verify the trend
     signal = Signal(williams_list, ema, trend)
     williams = williams_list[0]
     williams = williams[0]     # Take the last Williams %R value
