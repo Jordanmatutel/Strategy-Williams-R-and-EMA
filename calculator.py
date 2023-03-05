@@ -27,8 +27,8 @@ def trendDetector(closing_prices):
 
 
 def Signal(williams, EMA, trend):
-    signal = williams[0] - EMA[0]
-    if signal.between(-0.10, 0.10).all():
+    signal = williams - EMA[0]
+    if signal <= 0.10 and signal >=  0.10:
         if trend:
             buy = True
     else:
